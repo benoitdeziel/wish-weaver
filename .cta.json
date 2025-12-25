@@ -1,0 +1,24 @@
+{
+  "projectName": "wish-weaver",
+  "mode": "file-router",
+  "typescript": true,
+  "tailwind": true,
+  "packageManager": "pnpm",
+  "addOnOptions": {},
+  "git": true,
+  "version": 1,
+  "framework": "react-cra",
+  "chosenAddOns": [
+    "eslint",
+    "netlify",
+    "start",
+    "neon",
+    "clerk",
+    "db",
+    "form",
+    "shadcn",
+    "store",
+    "storybook",
+    "tanstack-query"
+  ]
+}
