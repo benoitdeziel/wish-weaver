@@ -55,7 +55,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <ClerkProvider>
-          <Header />
           {children}
           <TanStackDevtools
             config={{
