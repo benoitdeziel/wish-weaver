@@ -6,9 +6,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
-import Header from '../components/Header'
-
-import ClerkProvider from '../integrations/clerk/provider'
+import AppAuthProvider from '../integrations/neonauth/provider'
 
 import StoreDevtools from '../lib/demo-store-devtools'
 
@@ -54,7 +52,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <ClerkProvider>
+        <AppAuthProvider>
           {children}
           <TanStackDevtools
             config={{
@@ -69,7 +67,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
               TanStackQueryDevtools,
             ]}
           />
-        </ClerkProvider>
+        </AppAuthProvider>
         <Scripts />
       </body>
     </html>

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import ClerkHeader from '../integrations/clerk/header-user'
+import HeaderUser from '../integrations/neonauth/header-user'
 
 export const Route = createFileRoute('/')({ component: App })
 
@@ -12,9 +12,12 @@ function App() {
           <Link to="/dashboard">Dashboard</Link>
         </div>
         <div>
-          <button>New list</button>
-          <ClerkHeader />
+          <Link to="/wishlists">Wishlists</Link>
         </div>
+        <div>
+          <button>New list</button>
+        </div>
+        <HeaderUser />
       </div>
     </div>
   )
