@@ -11,6 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as WishlistsIndexRouteImport } from './routes/wishlists/index'
+import { Route as WishlistsNewRouteImport } from './routes/wishlists/new'
+import { Route as WishlistsIdRouteImport } from './routes/wishlists/$id'
+import { Route as SharedTokenRouteImport } from './routes/shared/$token'
 import { Route as DemoTanstackQueryRouteImport } from './routes/demo/tanstack-query'
 import { Route as DemoStorybookRouteImport } from './routes/demo/storybook'
 import { Route as DemoStoreRouteImport } from './routes/demo/store'
@@ -18,6 +22,8 @@ import { Route as DemoNeonRouteImport } from './routes/demo/neon'
 import { Route as DemoDbChatApiRouteImport } from './routes/demo/db-chat-api'
 import { Route as DemoDbChatRouteImport } from './routes/demo/db-chat'
 import { Route as DemoClerkRouteImport } from './routes/demo/clerk'
+import { Route as AuthPathnameRouteImport } from './routes/auth.$pathname'
+import { Route as AccountPathnameRouteImport } from './routes/account.$pathname'
 import { Route as DemoStartServerFuncsRouteImport } from './routes/demo/start.server-funcs'
 import { Route as DemoStartApiRequestRouteImport } from './routes/demo/start.api-request'
 import { Route as DemoFormSimpleRouteImport } from './routes/demo/form.simple'
@@ -37,6 +43,26 @@ const DashboardRoute = DashboardRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistsIndexRoute = WishlistsIndexRouteImport.update({
+  id: '/wishlists/',
+  path: '/wishlists/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistsNewRoute = WishlistsNewRouteImport.update({
+  id: '/wishlists/new',
+  path: '/wishlists/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WishlistsIdRoute = WishlistsIdRouteImport.update({
+  id: '/wishlists/$id',
+  path: '/wishlists/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedTokenRoute = SharedTokenRouteImport.update({
+  id: '/shared/$token',
+  path: '/shared/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoTanstackQueryRoute = DemoTanstackQueryRouteImport.update({
@@ -72,6 +98,16 @@ const DemoDbChatRoute = DemoDbChatRouteImport.update({
 const DemoClerkRoute = DemoClerkRouteImport.update({
   id: '/demo/clerk',
   path: '/demo/clerk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthPathnameRoute = AuthPathnameRouteImport.update({
+  id: '/auth/$pathname',
+  path: '/auth/$pathname',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountPathnameRoute = AccountPathnameRouteImport.update({
+  id: '/account/$pathname',
+  path: '/account/$pathname',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemoStartServerFuncsRoute = DemoStartServerFuncsRouteImport.update({
@@ -128,6 +164,8 @@ const DemoStartSsrDataOnlyRoute = DemoStartSsrDataOnlyRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/account/$pathname': typeof AccountPathnameRoute
+  '/auth/$pathname': typeof AuthPathnameRoute
   '/demo/clerk': typeof DemoClerkRoute
   '/demo/db-chat': typeof DemoDbChatRoute
   '/demo/db-chat-api': typeof DemoDbChatApiRoute
@@ -135,6 +173,10 @@ export interface FileRoutesByFullPath {
   '/demo/store': typeof DemoStoreRoute
   '/demo/storybook': typeof DemoStorybookRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/shared/$token': typeof SharedTokenRoute
+  '/wishlists/$id': typeof WishlistsIdRoute
+  '/wishlists/new': typeof WishlistsNewRoute
+  '/wishlists': typeof WishlistsIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -149,6 +191,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/account/$pathname': typeof AccountPathnameRoute
+  '/auth/$pathname': typeof AuthPathnameRoute
   '/demo/clerk': typeof DemoClerkRoute
   '/demo/db-chat': typeof DemoDbChatRoute
   '/demo/db-chat-api': typeof DemoDbChatApiRoute
@@ -156,6 +200,10 @@ export interface FileRoutesByTo {
   '/demo/store': typeof DemoStoreRoute
   '/demo/storybook': typeof DemoStorybookRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/shared/$token': typeof SharedTokenRoute
+  '/wishlists/$id': typeof WishlistsIdRoute
+  '/wishlists/new': typeof WishlistsNewRoute
+  '/wishlists': typeof WishlistsIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -171,6 +219,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRoute
+  '/account/$pathname': typeof AccountPathnameRoute
+  '/auth/$pathname': typeof AuthPathnameRoute
   '/demo/clerk': typeof DemoClerkRoute
   '/demo/db-chat': typeof DemoDbChatRoute
   '/demo/db-chat-api': typeof DemoDbChatApiRoute
@@ -178,6 +228,10 @@ export interface FileRoutesById {
   '/demo/store': typeof DemoStoreRoute
   '/demo/storybook': typeof DemoStorybookRoute
   '/demo/tanstack-query': typeof DemoTanstackQueryRoute
+  '/shared/$token': typeof SharedTokenRoute
+  '/wishlists/$id': typeof WishlistsIdRoute
+  '/wishlists/new': typeof WishlistsNewRoute
+  '/wishlists/': typeof WishlistsIndexRoute
   '/demo/api/names': typeof DemoApiNamesRoute
   '/demo/api/tq-todos': typeof DemoApiTqTodosRoute
   '/demo/form/address': typeof DemoFormAddressRoute
@@ -194,6 +248,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dashboard'
+    | '/account/$pathname'
+    | '/auth/$pathname'
     | '/demo/clerk'
     | '/demo/db-chat'
     | '/demo/db-chat-api'
@@ -201,6 +257,10 @@ export interface FileRouteTypes {
     | '/demo/store'
     | '/demo/storybook'
     | '/demo/tanstack-query'
+    | '/shared/$token'
+    | '/wishlists/$id'
+    | '/wishlists/new'
+    | '/wishlists'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -215,6 +275,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/dashboard'
+    | '/account/$pathname'
+    | '/auth/$pathname'
     | '/demo/clerk'
     | '/demo/db-chat'
     | '/demo/db-chat-api'
@@ -222,6 +284,10 @@ export interface FileRouteTypes {
     | '/demo/store'
     | '/demo/storybook'
     | '/demo/tanstack-query'
+    | '/shared/$token'
+    | '/wishlists/$id'
+    | '/wishlists/new'
+    | '/wishlists'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -236,6 +302,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dashboard'
+    | '/account/$pathname'
+    | '/auth/$pathname'
     | '/demo/clerk'
     | '/demo/db-chat'
     | '/demo/db-chat-api'
@@ -243,6 +311,10 @@ export interface FileRouteTypes {
     | '/demo/store'
     | '/demo/storybook'
     | '/demo/tanstack-query'
+    | '/shared/$token'
+    | '/wishlists/$id'
+    | '/wishlists/new'
+    | '/wishlists/'
     | '/demo/api/names'
     | '/demo/api/tq-todos'
     | '/demo/form/address'
@@ -258,6 +330,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRoute: typeof DashboardRoute
+  AccountPathnameRoute: typeof AccountPathnameRoute
+  AuthPathnameRoute: typeof AuthPathnameRoute
   DemoClerkRoute: typeof DemoClerkRoute
   DemoDbChatRoute: typeof DemoDbChatRoute
   DemoDbChatApiRoute: typeof DemoDbChatApiRoute
@@ -265,6 +339,10 @@ export interface RootRouteChildren {
   DemoStoreRoute: typeof DemoStoreRoute
   DemoStorybookRoute: typeof DemoStorybookRoute
   DemoTanstackQueryRoute: typeof DemoTanstackQueryRoute
+  SharedTokenRoute: typeof SharedTokenRoute
+  WishlistsIdRoute: typeof WishlistsIdRoute
+  WishlistsNewRoute: typeof WishlistsNewRoute
+  WishlistsIndexRoute: typeof WishlistsIndexRoute
   DemoApiNamesRoute: typeof DemoApiNamesRoute
   DemoApiTqTodosRoute: typeof DemoApiTqTodosRoute
   DemoFormAddressRoute: typeof DemoFormAddressRoute
@@ -291,6 +369,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlists/': {
+      id: '/wishlists/'
+      path: '/wishlists'
+      fullPath: '/wishlists'
+      preLoaderRoute: typeof WishlistsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlists/new': {
+      id: '/wishlists/new'
+      path: '/wishlists/new'
+      fullPath: '/wishlists/new'
+      preLoaderRoute: typeof WishlistsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wishlists/$id': {
+      id: '/wishlists/$id'
+      path: '/wishlists/$id'
+      fullPath: '/wishlists/$id'
+      preLoaderRoute: typeof WishlistsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared/$token': {
+      id: '/shared/$token'
+      path: '/shared/$token'
+      fullPath: '/shared/$token'
+      preLoaderRoute: typeof SharedTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/tanstack-query': {
@@ -340,6 +446,20 @@ declare module '@tanstack/react-router' {
       path: '/demo/clerk'
       fullPath: '/demo/clerk'
       preLoaderRoute: typeof DemoClerkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth/$pathname': {
+      id: '/auth/$pathname'
+      path: '/auth/$pathname'
+      fullPath: '/auth/$pathname'
+      preLoaderRoute: typeof AuthPathnameRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account/$pathname': {
+      id: '/account/$pathname'
+      path: '/account/$pathname'
+      fullPath: '/account/$pathname'
+      preLoaderRoute: typeof AccountPathnameRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demo/start/server-funcs': {
@@ -418,6 +538,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRoute: DashboardRoute,
+  AccountPathnameRoute: AccountPathnameRoute,
+  AuthPathnameRoute: AuthPathnameRoute,
   DemoClerkRoute: DemoClerkRoute,
   DemoDbChatRoute: DemoDbChatRoute,
   DemoDbChatApiRoute: DemoDbChatApiRoute,
@@ -425,6 +547,10 @@ const rootRouteChildren: RootRouteChildren = {
   DemoStoreRoute: DemoStoreRoute,
   DemoStorybookRoute: DemoStorybookRoute,
   DemoTanstackQueryRoute: DemoTanstackQueryRoute,
+  SharedTokenRoute: SharedTokenRoute,
+  WishlistsIdRoute: WishlistsIdRoute,
+  WishlistsNewRoute: WishlistsNewRoute,
+  WishlistsIndexRoute: WishlistsIndexRoute,
   DemoApiNamesRoute: DemoApiNamesRoute,
   DemoApiTqTodosRoute: DemoApiTqTodosRoute,
   DemoFormAddressRoute: DemoFormAddressRoute,

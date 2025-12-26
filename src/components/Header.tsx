@@ -1,6 +1,5 @@
 import { Link } from '@tanstack/react-router'
 
-
 import { useState } from 'react'
 import {
   BookOpen,
@@ -9,6 +8,7 @@ import {
   ClipboardType,
   Database,
   Globe,
+  Heart,
   Home,
   Menu,
   Network,
@@ -17,7 +17,7 @@ import {
   Store,
   X,
 } from 'lucide-react'
-import ClerkHeader from '../integrations/clerk/header-user.tsx'
+import HeaderUser from '../integrations/neonauth/header-user.tsx'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -74,6 +74,19 @@ export default function Header() {
           >
             <Home size={20} />
             <span className="font-medium">Home</span>
+          </Link>
+
+          <Link
+            to="/wishlists"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            activeProps={{
+              className:
+                'flex items-center gap-3 p-3 rounded-lg bg-cyan-600 hover:bg-cyan-700 transition-colors mb-2',
+            }}
+          >
+            <Heart size={20} />
+            <span className="font-medium">Wishlists</span>
           </Link>
 
           {/* Demo Links Start */}
@@ -284,7 +297,7 @@ export default function Header() {
         </nav>
 
         <div className="p-4 border-t border-gray-700 bg-gray-800 flex flex-col gap-2">
-          <ClerkHeader />
+          <HeaderUser />
         </div>
       </aside>
     </>
